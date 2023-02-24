@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | Interactive rating component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div id="first" class="container">
+      <div class="content">
+        <div class="star-container">
+          <i class="star"><embed src="images/icon-star.svg" /></i>
+        </div>
+        <div class="question">
+          <p>How did we do?</p>
+        </div>
+        <div class="details">
+          <p class="details-text">Please let us know how we did with your support request. All feedback is appreciated
+            to help us improve our
+            offering!</p>
+        </div>
+        <div class="rating">
+          <ul>
+            <li id="rate1" onclick="onRating1Clicked()">1</li>
+            <li id="rate2" onclick="onRating2Clicked()">2</li>
+            <li id="rate3" onclick="onRating3Clicked()">3</li>
+            <li id="rate4" onclick="onRating4Clicked()" class="selected">4</li>
+            <li id="rate5" onclick="onRating5Clicked()">5</li>
+          </ul>
+        </div>
+        <button onClick="clicked()" class="submit">SUBMIT</button>
+      </div>
+    </div>
+  </main>
+
+  <div id="second" class="container">
+    <div class="content centered">
+      <img class="thanks" src="images/illustration-thank-you.svg" alt="">
+      <div class="submitted">
+        <p class="submitted-text">
+          You selected <span id="value">4</span> out of 5
+        </p>
+      </div>
+      <div class="thank-you">
+        <p class="thank-you-text">Thank you!</p>
+      </div>
+      <div class="appreciation">
+        <p class="appreciation-text">We appreciate you taking the time to give a rating. If you ever need more support,
+          don't hesitate to get in touch!</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+</body>
+<script>
+  function clicked() {
+    document.getElementById("first").style.display = "none";
+    document.getElementById("second").style.display = "flex";
+  }
+
+  function clearSelected() {
+    var rate1 = document.getElementById("rate1");
+    var rate2 = document.getElementById("rate2");
+    var rate3 = document.getElementById("rate3");
+    var rate4 = document.getElementById("rate4");
+    var rate5 = document.getElementById("rate5");
+
+    rate1.classList.remove("selected");
+    rate2.classList.remove("selected");
+    rate3.classList.remove("selected");
+    rate4.classList.remove("selected");
+    rate5.classList.remove("selected");
+  }
+
+  function onRating1Clicked() {
+    clearSelected();
+    document.getElementById("value").innerHTML = "1";
+    rate1.classList.add("selected");
+  }
+
+  function onRating2Clicked() {
+    clearSelected();
+    document.getElementById("value").innerHTML = "2";
+    rate2.classList.add("selected");
+  }
+
+  function onRating3Clicked() {
+    clearSelected();
+    document.getElementById("value").innerHTML = "3";
+    rate3.classList.add("selected");
+  }
+
+  function onRating4Clicked() {
+    clearSelected();
+    document.getElementById("value").innerHTML = "4";
+    rate4.classList.add("selected");
+  }
+
+  function onRating5Clicked() {
+    clearSelected();
+    document.getElementById("value").innerHTML = "5";
+    rate5.classList.add("selected");
+  }
+</script>
+
+</html>
